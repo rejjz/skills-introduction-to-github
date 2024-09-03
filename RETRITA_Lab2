@@ -1,0 +1,32 @@
+import java.util.Scanner; // Imports the Scanner class 
+
+class Cylinder { // Defines a class named Cylinder to represent a cylinder.
+    double radius, height; // Creates variables to hold the cylinder's radius and height.
+
+    void input() { // Prompt the user to enter the cylinders radius and height.
+        Scanner sc = new Scanner(System.in); // Creates a Scanner object to read input 
+        System.out.print("Enter the radius: "); // Prompt the user to input the cylinder.
+        radius = sc.nextDouble(); // Prompt the user to get the radius and saves it..
+        System.out.print("Enter the height: "); // Prints a message asking the user to enter the height.
+        height = sc.nextDouble(); // Prompt the user to get the height and saves it.
+    }
+
+    double area() { // Defines a method named area to calculate the surface area of the cylinder.
+        return 2 * Math.PI * radius * (radius + height); // Calculates the area using the formula 2πr² + 2πrh and returns the result.
+    }
+}
+
+class CylinderVol extends Cylinder { // Defines a class named CylinderVol.
+    double volume() { // Defines a method named volume to calculate the volume of the cylinder.
+        return Math.PI * radius * radius * height; // Calculates the volume using the formula πr²h and returns the result.
+    }
+}
+
+public class Main { 
+    public static void main(String[] args) { 
+        CylinderVol cv = new CylinderVol(); // Creates an object of the CylinderVol class named cv.
+        cv.input(); 
+        System.out.println("Area: " + cv.area()); // Calculates the area using the area method of the cv object and prints the result.
+        System.out.println("Volume: " + cv.volume()); // Calculates the volume using the volume method of the cv object and prints the result.
+    }
+}
