@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class StudentEnrollment {
+    public static void main(String[] args) {
+        // Constants
+        final int FEE_PER_UNIT = 1000;
+
+        // Variables
+        String studentName = "Retrita, Regine G.";
+        String course = "Bachelor of Science in Computer Engineering";
+        String courseCode = "CPE 211";
+        int numberOfUnits = 2;
+
+        // Compute total enrollment fee
+        int totalFee = numberOfUnits * FEE_PER_UNIT;
+
+        // Output student information and total fee
+        System.out.println("Student Name: " + studentName);
+        System.out.println("Course: " + course);
+        System.out.println("Course Code: " + courseCode);
+        System.out.println("Total Enrollment Fee: " + totalFee);
+
+        // Payment processing
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter payment amount: ");
+        int paymentAmount = scanner.nextInt();
+
+        // Determine payment status
+        if (paymentAmount == totalFee) {
+            System.out.println("Payment Status: Fully Paid");
+        } else if (paymentAmount < totalFee) {
+            System.out.println("Payment Status: Partial Payment of " + paymentAmount);
+        } else {
+            System.out.println("Payment Status: Overpaid by " + (paymentAmount - totalFee));
+        }
+
+        // Close the scanner
+        scanner.close();
+    }
+}
