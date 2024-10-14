@@ -76,11 +76,11 @@ class Instructor extends Person {
     }
 }
 
-// Test program to demonstrate the functionality
+// Test program to demonstrate the functionality of the university enrollment
 public class UniversityEnrolmentSystem {
     // Method to print details of a person
     public static void printDetails(Person p) {
-        p.displayInfo(); // Calls the appropriate displayInfo method
+        p.displayInfo(); // Calls the appropriate displayInfo method based on the project type
     }
 
     public static void main(String[] args) {
