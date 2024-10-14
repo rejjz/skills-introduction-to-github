@@ -1,0 +1,105 @@
+// Base class representing a person
+class Person {
+    // Fields for name and age
+    private String name;
+    private int age;
+
+    // Constructor to initialize name and age
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Method to display person's information
+    public void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println ("Age: " + age);
+    }
+}
+
+// Subclass representing a student
+class Student extends Person {
+    // Fields for student ID, course, units, and fee per unit
+    private String studentID;
+    private String course;
+    private int units;
+    private final int feePerUnit = 1000; // Final variable for fee per unit
+
+    // Constructor to initialize student details
+    public Student(String name, int age, String studentID, String course, int units) {
+        super(name, age); // Call to the superclass constructor
+        this.studentID = studentID;
+        this.course = course;
+        this.units = units;
+    }
+
+    // Method to calculate total fees
+    public double calculateFees() {
+        return units * feePerUnit;
+    }
+
+    // Overriding displayInfo method to include student details
+    @Override
+    public void displayInfo() {
+        super.displayInfo(); // Call to the superclass method
+        System.out.println("Student ID: " + studentID);
+        System.out.println("Course: " + course);
+        System.out.println("Units: " + units);
+        System.out.println("Total Fee : " + calculateFees());
+        System.out.println(" ");
+    }
+}
+
+// Subclass representing an instructor
+class Instructor extends Person {
+    // Fields for employee ID, department, and salary
+    private String employeeID;
+    private String department;
+    private double salary;
+
+    // Constructor to initialize instructor details
+    public Instructor(String name, int age, String employeeID, String department, double salary) {
+        super(name, age); // Call to the superclass constructor
+        this.employeeID = employeeID;
+        this.department = department;
+        this.salary = salary;
+    }
+
+    // Overriding displayInfo method to include instructor details
+    @Override
+    public void displayInfo() {
+        super.displayInfo(); // Call to the superclass method
+        System.out.println("Employee ID: " + employeeID);
+        System.out.println("Department: " + department);
+        System.out.println("Salary: " + salary);
+        System.out.println(" ");
+    }
+}
+
+// Test program to demonstrate the functionality
+public class UniversityEnrolmentSystem {
+    // Method to print details of a person
+    public static void printDetails(Person p) {
+        p.displayInfo(); // Calls the appropriate displayInfo method
+    }
+
+    public static void main(String[] args) {
+        try {
+            // Creating two Student objects
+            Student student1 = new Student("Den Nilo", 20, "231005268", "Bachelor of Science in Computer Engineering", 45);
+            Student student2 = new Student("Havagatt", 20, "231005251", "Bachelor of Science in Civil Engineering", 22);
+
+            // Creating two Instructor objects
+            Instructor instructor1 = new Instructor("Prof. Tanya", 23, "211", "Data Structure", 35000);
+            Instructor instructor2 = new Instructor("Prof. Sarahlyn", 50, "E101", "Object Oriented Programming", 54000);
+
+            // Printing details of each person
+            printDetails(student1);
+            printDetails(student2);
+            printDetails(instructor1);
+            printDetails(instructor2);
+        } catch (Exception e) {
+            System.err.println("An error occurred: " + e.getMessage());
+        }
+    }
+}
